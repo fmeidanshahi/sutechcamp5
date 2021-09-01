@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>فرم ثبت نام</title>
+    <style>
+        label,input{
+            margin:3px;
+            font-family:shabnam;
+            border-radius: 1px;
+        }
+       span{
+           color: red;
+       } 
+       .c1{
+           background-color: royalblue;
+           
+       }
+       .wrapper {
+            height: 600px;
+            width:400px;
+            border: 10px solid rgb(0, 0, 0);
+            border:none;
+            justify-content: space-between;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            margin: auto;
+            
+           
+        }
+        #sabt{
+            background-color: royalblue;
+        }
+        .form1{
+            background-color: white;
+            height: 350px;
+            width:250px;
+        }
+        .form2{
+            background-color: white;
+            height: 200px;
+            width:250px;
+        }
+    </style>
+</head>
+
+<body dir="rtl" class ="c1">
+    <div class="wrapper">
+        <div class="form1">
+            <form >
+                <label for="fname_lname">نام و نام خانوادگی<span>*</span></label></label> <br>
+                <input placeholder="مثال: فرناز میدانشاهی" name="fname_lname" id="fname_lname" required>
+                <br>
+            
+                <label for="phone">شماره تماس<span>*</span></label><br>
+                <input placeholder="مثال: 09367703040" type="tel"  name="phone" id="phone"  required>
+                <br>
+        
+                <label for="birthdate">تاریخ تولد <span>*</span></label> <br>
+                <input  type="date"  name="birthdate" id="birthdate" required>
+                <br>
+                
+                
+                <label for="email">ایمیل<span>*</span></label> <br>
+                <input placeholder="مثال: fmeidanshahi@gmail.com"  type="email" name="email" id="email" required>
+                <br>
+                
+                <label for="pass">رمز عبور<span>*</span></label> <br>
+                <input placeholder="یک رمز عبور وارد کنید..." type="password" name="pass" id="pass" required> <br>
+                
+                <br>
+                <input id="sabt" type="submit" value="ثبت نام">
+                <input type="reset" value="پاک کن!">
+            </form>
+        </div>
+
+
+        <div class="form2">
+            <form >
+                <label for="email">ایمیل<span>*</span></label> <br>
+                <input placeholder="ایمیل را اینجا وارد کنید..."  type="email" name="email" id="email" required>
+                <br>
+                
+                <label for="pass">رمز عبور<span>*</span></label> <br>
+                <input placeholder="رمز عبور را اینجا وارد کنید..." type="password" name="pass" id="pass" required> <br>
+                
+                <br>
+                <input id="sabt" type="submit" value="ورود">
+                
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
