@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercise1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+
+<body dir="rtl">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">منو</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">صفحه اصلی</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">لینک</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class=" col-md-6 ">
+                <form>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">نام کالا</label>
+                        <input class="form-control" type="text" id="exampleFormControlTextarea1>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">تعداد موجودی</label>
+                        <input class="form-control" type="number" id="exampleFormControlTextarea1>
+                    </div>
+                    <div class="mb-3">
+                        <select class="form-select" aria-label="Default select example">
+                            <option value="0" selected disabled="disabled">دسته بندی کالا</option>
+                            <option value="1">شیائومی</option>
+                            <option value="2">هوآوی</option>
+                            <option value="3">نوکیا</option>
+                            <option value="4">سامسونگ</option>
+                          </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">قیمت</label>
+                        <input class="form-control" type="text" id="exampleFormControlTextarea1>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">توضیحات</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Submit">
+                    <input class="btn btn-primary" type="reset" value="Reset">
+                </form>
+            </div>
+            <div class=" col-md-6 ">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">نام کالا</th>
+                        <th scope="col">تعداد موجودی</th>
+                        <th scope="col">دسته بندی کالا</th>
+                        <th scope="col">قیمت</th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">شیائومی Redmi Note 10</th>
+                        <td>20</td>
+                        <td>شیائومی</td>
+                        <td>6،000،000 تومان</td>
+                        <td><input class="btn btn-primary" type="button" value="ویرایش"><input class="btn btn-primary" type="button" value="حذف"></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">سامسونگ Galaxy A12</th>
+                        <td>10</td>
+                        <td>سامسونگ</td>
+                        <td>4،000،000 تومان</td>
+                        <td><input class="btn btn-primary" type="button" value="ویرایش"><input class="btn btn-primary" type="button" value="حذف"></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">نوکیا G10</th>
+                        <td>20</td>
+                        <td>نوکیا</td>
+                        <td>3،000،000 تومان</td>
+                        <td><input class="btn btn-primary" type="button" value="ویرایش"><input class="btn btn-primary" type="button" value="حذف"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
