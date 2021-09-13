@@ -156,6 +156,10 @@ header {
     color: #4A4A4A;
 }
 
+.header-left .notif-bell .notif-menu {
+    color: #4A4A4A;
+}
+
 .header-left .user-info .usermenu > i {
     font-size: 13px;
 }
@@ -166,6 +170,13 @@ header {
     border-radius: 18px;
     font-size: 14px;
     top: 55px!important;
+}
+
+.header-left .notif-bell .dropdown-menu {
+    border: none;
+    box-shadow: rgb(74 74 74 / 20%) 0px 5px 20px;
+    border-radius: 18px;
+    top: 40px!important;
 }
 
 .header-left .user-bar .dropdown-item {
@@ -204,7 +215,7 @@ header {
     right: -2px;
 } */
 
-.header-left .notif-bell > .new {
+.header-left .notif-bell .notif-menu > .new {
     width: 9px;
     height: 9px;
     border: 2px solid #fff;
@@ -291,98 +302,197 @@ main {
     border-top-right-radius: 10px;
 }
 
+.card.post .post-info {
+    display: flex;
+    padding: 0 15px;
+}
 
+.card.post .post-info .info-box {
+    background: #ffffff;
+    box-shadow: 0 1px 15px rgb(49 49 49 / 20%);
+    border-radius: 10px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #4a4a4a;
+    position: relative;
+    top: -65px;
+    display: none;
+}
 
+.card.post .post-info .info-box span {
+    font-family: 'Shabnam FD'!important;
+}
 
+.card.post .post-info .info-box i {
+    font-size: 20px;
+    margin-top: 2.5px;
+}
+/* .post-info .info-box.right {
+    right: 15px;
+}
+.post-info .info-box.left {
+    left: 15px;
+} */
 
+.card.post:hover .info-box {
+    display: flex;
+}
 
-.article-writer2{
+.trending-posts .trending-post {
+    background: rgb(85, 85, 85);
+    height: 310px;
+    box-shadow: 0 1px 20px #3131311f;
+    border-radius: 10px;
+    position: relative;
+}
+
+.trending-posts .trending-post .image{
+    border-radius: 10px;
+    
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.trending-posts .trending-post .buttons{
+    margin-bottom: 15px;
+}
+
+.trending-posts .trending-post .category{
+    color: #0c0c0c;
+background: #fff;
+border-radius: 100px;
+padding: 8px 18px;
+font-weight: 500;
+transition: color 0.2s ease-in-out;
+}
+
+.trending-posts .trending-post .post-title{
+    color: white;
+}
+
+.trending-posts .trending-post .post-text{
+    border-radius: 10px;
+position: absolute;
+height: 100%;
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+.trending-posts .trending-post .article-writer{
     display: block;
-    max-width: 70px;
+    max-width: 85px;
     border-radius: 50%;
     border: 4px solid #ffff;
     margin: auto;
     position: relative;
-    top: 44px;
-    margin-bottom: -50px;
+    top: 255px;
+    margin-bottom: -35px;
 }
-.card-title{
+
+
+.trending-posts .trending-post-wrapper {
+    padding: 20px;
+}
+
+.section-break {
+    margin-top: 100px;
+}
+
+.section-intro {
     text-align: center;
-    font-weight: 250;
+    color: #333333;
 }
-.btn-upgrade2{
-    border: none;
-    padding: 5px 14px;
-    border-radius: 100px;
-    background: #FFF;
-    color: #000;
+
+.section-intro h3 {
+    font-weight: bold;
+}
+
+.section-intro p {
     font-size: 15px;
-    position: relative;
-    right: 68px;
-    
-}
-.card2{
-    border-radius: 10px;
-}
-.btn-upgrade3{
-    border: none;
-    padding: 5px 14px;
-    border-radius: 100px;
-    background-color: #fff;
-    color:limegreen;
+    font-weight: 300;
 }
 
-.nav2{
-    background-color: limegreen;
-    margin-bottom: 40px;
-    padding: 0 0;
-    
+.footer-header {
+    background: #25D366;
 }
-.fa-whatsapp{
-    color: white;
-    font-size: 30px;
-    margin-left: 10px;
-}
-.navbar .nav-container .navlink > p{
-    color: white;
-    font-size: 20px;
-}
-footer .card-title{
-    text-align: right;
-    font-weight: bold;
-}
-footer .card{
-    box-shadow: none;
-}
-footer .list-title{
-    text-align: right;
-    font-weight: bold;
-}
-footer .list-group-item{
-    border: none;
-}
-footer .wrapper{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 3fr 1fr;
-    grid-gap: 10px;
-    height: 190px;
-    width: 250px;
-            
-}
-footer .box1 , .box2{
-    background-color: rgb(218, 214, 214);
-}
-footer .box3{
-    grid-column: 1/3;
+
+.footer-header .container {
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    padding: 15px 10px;
 }
-footer .flex-con{
+
+.whatsapp-btn {
+    color: #13ae4d;
+    background: #fff;
+    border-radius: 100px;
+    padding: 8px 18px;
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+}
+
+.whatsapp-btn:hover {
+    color: #11833a;
+}
+
+.map iframe {
+    border-radius: 10px;
+    border: 1px solid #d5d5d5;
+}
+
+.footer-header .text {
+    display: flex;
+    align-items: center;
+}
+
+.footer-header .text i {
+    font-size: 45px;
+    margin-left: 12px;
+}
+
+.footer-header .text span {
+    font-size: 17px;
+    font-weight: 300;
+}
+
+
+
+
+.social-media-links{
+    display: flex;
+    justify-content: end;
+}
+
+.social-media-links .social-link{
+    margin-right: 8px;
+    color: #aeaeae;
+    font-size: 25px;
+}
+.footer-header .container{
+    flex-wrap: wrap;
+}
+.footer-container{
+    padding: 60px 0 60px 0;
+}
+.code-con{
     display: flex;
     justify-content: flex-end;
 }
-
-
+.friend-links{
+    list-style: none;
+    padding-right: unset;
+    line-height: 2;
+}
+.friend-link-item > a {
+    color: rgb(41, 39, 39);
+}
