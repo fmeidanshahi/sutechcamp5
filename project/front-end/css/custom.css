@@ -982,3 +982,19 @@ small.form-error {
 } 
 
 
+
+
+.pagination-container{
+    max-width: 300px;
+margin: auto;
+background-color: white;
+border-radius: 30px;
+box-shadow: 0 1px 20px rgb(90 67 2 / 15%);
+}
+.page-link{
+    box-shadow: none;
+    border-radius: 50px;
+}
+.pagination{
+    padding: 5px;
+}

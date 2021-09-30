@@ -1,0 +1,42 @@
+@font-face {
+    font-family: 'Shabnam';
+    src: url('../shabnamfont/Shabnam-Light.eot') ;
+    src: url('../shabnamfont/Shabnam-Light.eot') format('embedded-opentype'),
+       url('../shabnamfont/Shabnam-Light.woff2') format('woff2'),
+       url('../shabnamfont/Shabnam-Light.woff') format('woff'),
+       url('../shabnamfont/Shabnam-Light.ttf') format('truetype');
+  }
+body, * {
+    font-family: Shabnam;
+}
+
+body {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+@media (min-width: 1200px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+        max-width: 1200px;
+    }
+}
+
+.navbar-brand{
+    font-weight: bold;
+    font-size: 27px;
+}
+
+/* .main-content {
+    height: 560px;
+    padding: 25px 0;
+} */
+
+.card{
+    border: none;
+}
+main{
+    min-height: 100vh;
+}
