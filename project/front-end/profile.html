@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پروفایل</title>
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body dir="rtl">
+    <div class="modal fade upgrade-modal" id="upgrade_account" tabindex="-1" aria-labelledby="upgrade_account_label"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="upgrade_account_label">ارتقا حساب کاربری</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="" class="upgrade-acc">
+                    <div class="plan">
+                        <input type="radio" name="vip_plan" id="vip1" checked="checked" value="1">
+                        <label for="vip1" class="plan-content">
+                            <div class="icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <div class="text">
+                                <h4 class="plan-name">اشتراک ویژه طرح عادی</h4>
+                                <p class="plan-desc">1 ماه دسترسی نامحدود</p>
+                            </div>
+                            <div class="price">
+                                15,000 تومان
+                            </div>
+                        </label>
+                    </div>
+                    <div class="plan">
+                        <input type="radio" name="vip_plan" id="vip2" value="2">
+                        <label for="vip2" class="plan-content">
+                            <div class="icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <div class="text">
+                                <h4 class="plan-name">اشتراک ویژه طرح طلایی</h4>
+                                <p class="plan-desc">3 ماه دسترسی نامحدود</p>
+                            </div>
+                            <div class="price">
+                                40,000 تومان
+                            </div>
+                        </label>
+                    </div>
+                    <div class="plan">
+                        <input type="radio" name="vip_plan" id="vip3" value="3">
+                        <label for="vip3" class="plan-content">
+                            <div class="icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <div class="text">
+                                <h4 class="plan-name">اشتراک ویژه طرح لاکچری</h4>
+                                <p class="plan-desc">6 ماه دسترسی نامحدود</p>
+                            </div>
+                            <div class="price">
+                                75,000 تومان
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="payment-info">
+                        <div class="info">
+                            <h6>
+                                موجود کیف پول شما:
+                                <span>10000</span> تومان
+                            </h6>
+                            <a href="#">شارژ حساب</a>
+                        </div>
+
+                        <button type="submit">
+                            <i class="fas fa-rocket"></i>
+                            ارتقا بده!
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-6 header-right">
+                    <a href="#">
+                        <img src="img/SUTCAMPLogo.png" alt="لوگو سوتک کمپ">
+                    </a>
+                    <div class="search-bar">
+                        <form>
+                            <input type="search" class="form-control" name="" id=""
+                                placeholder="عبارتی برای جستجو وارد کنید...">
+                        </form>
+                    </div>
+                </div>
+                <div class="col-6 header-left">
+                    <!-- When logged in -->
+
+                    <div class="user-bar">
+                        <div class="avatar">
+                            <img src="img/profile.jpg" alt="">
+                            <div class="overlay"></div>
+                        </div>
+                        <div class="user-info">
+                            <div class="dropdown">
+                                <a class="usermenu" href="#" type="button" id="usermenu" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <span>فرناز میدانشاهی</span>
+                                    <i class="fas fa-sort-down"></i>
+                                </a>
+                                <ul class="dropdown-menu animate__animated animate__fadeInUp animate__faster"
+                                    aria-labelledby="usermenu">
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fas fa-user-alt"></i>
+                                            <span>مشاهده پروفایل</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fas fa-sign-out-alt"></i>
+                                            <span>خروج از حساب</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="account-type">اشتراک عادی</div>
+                        </div>
+                    </div>
+                    <div class="notif-bell dropdown">
+                        <a class="notif-menu" href="#" type="button" id="notif-menu" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fas fa-bell"></i>
+                            <div class="new"></div>
+                        </a>
+                        <ul class="dropdown-menu animate__animated animate__fadeInUp animate__faster"
+                            aria-labelledby="notif-menu">
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <span>یک اطلاعیه جدید</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <span>یک اطلاعیه جدید</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Not logged in -->
+                    <!-- <a href="#" class="btn">ورود</a>
+                    <a href="#" class="btn">ثبت‌نام</a> -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="منوی ناوبری">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="index" href="#">صفحه اصلی</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">درباره ما</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">سوالات متداول</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">تماس با ما</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">دسته بندی‌ها</a>
+                    </li>
+                </ul>
+                <button class="btn-upgrade" type="submit" data-bs-toggle="modal" data-bs-target="#upgrade_account">
+                    <i class="fas fa-crown"></i>
+                    <span>ویژه شوید!</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 profile-info" >
+                    <div class="profile-wrapper" style="background-image: url(img/1349232.jpg);">
+                        <!-- <img src="img/1349232.jpg" class="img-fluid" alt="..."> -->
+                        <div class="overlay"></div>
+                        <img src="img/profile.jpg" class="profile-photo"
+                        data-bs-toggle="tooltip" data-bs-placement="top" title="فرناز میدانشاهی">
+                        <a href="#"><div class="edit-profile"><i class="fas fa-edit"></i></div></a>
+                        <div class="profile-bar">
+                            <nav class="navbar navbar-expand-lg navbar-dark">
+                                <div class="container">
+                                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" id="profile-menu"
+                                       data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" 
+                                       aria-label="Toggle navigation">
+                                       <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div class=" collapse navbar-collapse" id="navbarSupportedContent">
+                                        <ul class="list-group list-group-horizontal  navbar-nav me-auto mb-2 mb-lg-0">
+                                            <li class="list-group-item nav-item"><i class="far fa-clock"></i> تاریخ عضویت<div class="profile-value">11مرداد،1400</div></li>
+                                            <li class="list-group-item nav-item"><i class="far fa-clone"></i> تعداد مطالب<div class="profile-value">543</div></li>
+                                            <li class="list-group-item nav-item"><i class="far fa-star"></i> امتیاز <div class="profile-value">4.2</div></li>
+                                            <li class="list-group-item nav-item"><i class="far fa-clock"></i> آخرین بازدید <div class="profile-value">1 هفته پیش</div></li>
+                                            <li class="list-group-item nav-item"><i class="far fa-comments"></i> بازخورد <div class="profile-value">120</div></li>
+                                          </ul>
+                                          
+                                    </div>
+                                </div>
+                            </nav>
+                            <button class="btn" type="submit"><i class="fas fa-user-plus"></i> دنبال کردن</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row main-profile mb-3">
+                <div class="col-12  col-lg-4 mb-3">
+                    <div class="wallet">
+                        <div class="wallet-icon"><i class="fas fa-wallet"></i></div>
+                        <div class="wallet-box">
+                            <div class="wallet-text">
+                                <p>موجودی کیف پول</p>
+                                <div>14000 تومان</div>
+                            </div>
+                            <button type="button" class="btn btn-dark"><i class="fas fa-rocket"></i> افزایش موجودی</button>
+                        </div>
+                        
+                    </div>
+                    <div class="about-me">
+                        <h6>کمی درباره من :)</h6>
+                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-8">
+                    <div class="main-left">
+                        <div class="nav-background">
+                            <nav>
+                                <div class="nav nav-tabs nav-justified" id="nav-tab" role="tablist">
+                                  <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">فعالیت</button>
+                                  <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">بازخوردها</button>
+                                </div>
+                            </nav>
+                        </div>
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <ul class="list-group activity">
+                                    <li class="list-group-item">
+                                        <div class="activity-item">
+                                            <div class="right-section">
+                                                <i class="fas fa-plus-circle add-subject" data-bs-toggle="tooltip" data-bs-placement="top" title="مطلب جدید"></i>
+                                                <img src="img/profile.jpg" class="profile-photo">
+                                            </div>
+                                            
+                                            <div class="content">
+                                                <div class="activity-type"><i class="fas fa-circle"></i><a href="#"> فرناز میدانشاهی </a>یک مطلب جدید در <a href="#"> تکنولوژی </a>ارسال کرد.</div>
+                                                
+                                                <h5>یک عنوان تستی برای این مطلب</h5>
+                                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است
+                                                    چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی
+                                                    مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد...</p>
+                                                <div class="details">
+                                                    <span><i class="far fa-clock"></i> 3 روز پیش </span>
+                                                    <span class="second"><i class="far fa-comments"></i> 120 دیدگاه </span>
+                                                </div>
+                                            </div>
+                                        </div>
+    
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="activity-item">
+                                            <div class="right-section">
+                                                <div class="user-profile"><i class="fas fa-star"></i></div>
+                                            </div>
+                                            
+                                            <div class="content">
+                                                <div class="activity-type" style="max-width: none;"><i class="fas fa-circle"></i><a href="#"> فرناز میدانشاهی </a>یک بازخورد برای <a href="#"> علی احمدی </a>ثبت کرد.</div>
+                                                 
+                                                <div class="details">
+                                                    <span><i class="far fa-clock"></i> 3 روز پیش </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="activity-item">
+                                            <div class="right-section">
+                                                <i class="fas fa-plus-circle add-subject" data-bs-toggle="tooltip" data-bs-placement="top" title="دیدگاه جدید"></i>
+                                                <img src="img/profile.jpg" class="profile-photo">
+                                            </div>
+                                            
+                                            <div class="content">
+                                                <div class="activity-type"><i class="fas fa-circle"></i><a href="#"> فرناز میدانشاهی </a>یک دیدگاه جدید در <a href="#"> یک عنوان تستی </a>ارسال کرد.</div>
+                                                <h5> دیدگاه در «یک عنوان تستی»</h5>
+                                                <p>سلام. مطلب خیلی خوبی بود. اگه میشه در مورد نکته آخر بیشتر توضیح بدید.</p>
+                                                <div class="details">
+                                                    <span><i class="far fa-clock"></i> 5 روز پیش </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                  </ul>
+                            </div>
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                <ul class="list-group activity">
+                                    <li class="list-group-item">
+                                        <div class="activity-item">
+                                            <div class="right-section">
+                                                <img src="img/profile2.jpg" class="profile-photo">
+                                                <i class="far fa-grin-hearts" data-bs-toggle="tooltip" data-bs-placement="top" title="عالی"></i>
+                                            </div>
+                                            
+                                            <div class="content">
+                                                <div class="activity-type"><i class="fas fa-circle"></i><a href="#"> علیرضا احمدی </a> یک بازخورد ثبت کرده است. </div>
+                                                <p>بهترین مطالب این سایت جز مطالب ایشون بوده!</p>
+                                                <div class="details">
+                                                    <span><i class="far fa-clock"></i> 1 روز پیش </span>
+                                                </div>
+                                            </div>
+                                        </div>
+    
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="activity-item">
+                                            <div class="right-section">
+                                                <img src="img/profile3.jpg" class="profile-photo">
+                                                <i class="far fa-smile-beam" data-bs-toggle="tooltip" data-bs-placement="top" title="خوب"></i>
+                                            </div>
+                                            
+                                            <div class="content">
+                                                <div class="activity-type" style="max-width: none;"><i class="fas fa-circle"></i><a href="#"> رضا مولایی </a> یک بازخورد ثبت کرده است. </div>
+                                                <p>بد نبود مطالبتون! میتونست بهترم باشه.</p>
+                                                <div class="details">
+                                                    <span><i class="far fa-clock"></i> 3 روز پیش </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="activity-item">
+                                            <div class="right-section">
+                                                <img src="img/profile4.jpg" class="profile-photo">
+                                                <i class="far fa-meh" data-bs-toggle="tooltip" data-bs-placement="top" title="متوسط"></i>
+                                            </div>
+                                            
+                                            <div class="content">
+                                                <div class="activity-type" style="max-width: none;"><i class="fas fa-circle"></i><a href="#"> فاطمه رضایی </a> یک بازخورد ثبت کرده است. </div>
+                                                <p>حالا همچی هم خوب نبود :/</p>
+                                                <div class="details">
+                                                    <span><i class="far fa-clock"></i> 5 روز پیش </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                  </ul>
+                            </div>
+                        </div>
+                    </div>                       
+                </div>
+            </div>
+        </div>    
+    </main>
+
+    <footer>
+        <div class="footer-header">
+            <div class="container">
+                <div class="text">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>
+                        پاسخگوی سوالات شما در واتس‌اپ هستیم
+                    </span>
+                </div>
+                <div class="buttons">
+                    <a href="#" class="whatsapp-btn">چت در واتس‌اپ</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-main container">
+            <div class="row">
+                <div class="col-12 col-lg-4 footer-section">
+                    <h4 class="footer-title">
+                        درباره ما
+                    </h4>
+                    <p class="footer-text">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی
+                        مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
+                    </p>
+                    <div class="social-media-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram-square"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-square"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter-square"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-google-plus-square"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-3 footer-section">
+                    <h4 class="footer-title">
+                        پیوندها
+                    </h4>
+                    <ul class="friend-links">
+                        <li class="friend-link-item">
+                            <a href="#" class="friend-link">
+                                <i class="fas fa-link"></i>
+                                <span>انجمن علمی کامپیوتر</span>
+                            </a>
+                        </li>
+                        <li class="friend-link-item">
+                            <a href="#" class="friend-link">
+                                <i class="fas fa-link"></i>
+                                <span>وبسایت وزارت علوم و فناوری اطلاعات</span>
+                            </a>
+                        </li>
+                        <li class="friend-link-item">
+                            <a href="#" class="friend-link">
+                                <i class="fas fa-link"></i>
+                                <span>انجمن علمی کامپیوتر</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-lg-5 footer-section">
+                    <div style="width: 100%" class="map">
+                        <iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0"
+                            marginwidth="0"
+                            src="https://maps.google.com/maps?width=100%25&amp;height=300&amp;hl=en&amp;q=%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87%20%D8%B5%D9%86%D8%B9%D8%AA%DB%8C%20%D8%B4%DB%8C%D8%B1%D8%A7%D8%B2+(%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87%20%D8%B5%D9%86%D8%B9%D8%AA%DB%8C%20%D8%B4%DB%8C%D8%B1%D8%A7%D8%B2)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="footer-copy-right container">
+            <div class="row">
+                <div class="col-12 text-center text-md-start col-md-6">
+                    <p>تمام حقوق برای وب‌سایت سوتک کمپ محفوظ میباشد.</p>
+                </div>
+                <div class="col-12 text-center text-md-end col-md-6">
+                    <code>&lt;/&gt; w/ 💙 for SUTCamp</code>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/aos.js"></script>
+
+    <script>
+        AOS.init();
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        });
+
+        // $("#profile-menu").click(function(){
+        //     $("ul").removeClass("list-group");
+        //     $("ul").removeClass("list-group-horizontal");
+        //     $("li").removeClass("list-group-item");
+        // });
+        
+    </script>
+</body>
+
+</html>

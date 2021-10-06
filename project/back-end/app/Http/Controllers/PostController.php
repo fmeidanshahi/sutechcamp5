@@ -13,7 +13,7 @@ class PostController extends Controller
 //       $posts = Post::orderBy('id', 'DESC')->get();
 
         $posts = Post::limit(5)->get();
-        return view('home', ['posts'=>$posts]);
+        return view('index', ['posts'=>$posts]);
     }
 
 //    public function single($slug) {

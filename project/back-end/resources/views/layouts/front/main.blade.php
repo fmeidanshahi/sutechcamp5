@@ -31,7 +31,61 @@
                     </div>
                 </div>
                 <div class="col-6 header-left">
-                    @yield('header-left')
+                    @auth
+                    <div class="user-bar">
+                        <div class="avatar">
+                            <img src="{{route('home')}}/img/profile.jpg" alt="">
+                            <div class="overlay"></div>
+                        </div>
+                        <div class="user-info">
+                            <div class="dropdown">
+                                <a class="usermenu" href="#" type="button" id="usermenu" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <span>فرناز میدانشاهی</span>
+                                    <i class="fas fa-sort-down"></i>
+                                </a>
+                                <ul class="dropdown-menu animate__animated animate__fadeInUp animate__faster"
+                                    aria-labelledby="usermenu">
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fas fa-user-alt"></i>
+                                            <span>مشاهده پروفایل</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fas fa-sign-out-alt"></i>
+                                            <span>خروج از حساب</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="account-type">اشتراک عادی</div>
+                        </div>
+                    </div>
+                    <div class="notif-bell dropdown">
+                        <a class="notif-menu" href="#" type="button" id="notif-menu" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fas fa-bell"></i>
+                            <div class="new"></div>
+                        </a>
+                        <ul class="dropdown-menu animate__animated animate__fadeInUp animate__faster"
+                            aria-labelledby="notif-menu">
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <span>یک اطلاعیه جدید</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <span>یک اطلاعیه جدید</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    @else
+                    <a href="{{route('login')}}" class="btn btn-info">ورود</a>
+                    @endauth
                 </div>
             </div>
         </div>

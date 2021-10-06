@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\DB;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'PostController@index')->name('home');
 
 
 
@@ -122,3 +120,7 @@ Route::get('/dump', function (){
 
     dd('Done!');
 });
+
+Auth::routes();
+
+
