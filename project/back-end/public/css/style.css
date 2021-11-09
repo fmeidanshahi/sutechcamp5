@@ -1,0 +1,168 @@
+@font-face {
+    font-family: 'Shabnam';
+    src: url('../shabnamfont/Shabnam-Light.eot') ;
+    src: url('../shabnamfont/Shabnam-Light.eot') format('embedded-opentype'),
+       url('../shabnamfont/Shabnam-Light.woff2') format('woff2'),
+       url('../shabnamfont/Shabnam-Light.woff') format('woff'),
+       url('../shabnamfont/Shabnam-Light.ttf') format('truetype');
+  }
+body, * {
+    font-family: Shabnam;
+}
+body {
+    margin: 0;
+}
+
+.back-footage {
+    position: fixed;
+    left: 0;
+    top: 0;
+    /* solution 1: */
+    /* min-width: 100%; 
+    min-height: 100%; */
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+}
+
+.back-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.menu-container {
+    display: flex;
+    flex-flow: wrap column;
+    margin-left: 20px;
+}
+
+.card {
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+}
+
+.card.login {
+    width: 375px;
+}
+
+.menu-container > .profile {
+    width: 100px;
+}
+
+.menu-container > .menu {
+    height: 350px;
+}
+
+.card > .content {
+    position: relative;
+    padding: 50px;
+    /* color: rgb(63, 63, 63); */
+}
+
+.content > h1, p {
+    margin-top: 0;
+}
+
+.content > h1 {
+    text-align: center;
+}
+
+.content > p {
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.content > form input {
+    display: block;
+    border: none;
+    border-bottom: 1px solid #cbcbcb;
+    margin-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    width: 100%;
+}
+
+.content > form input:focus {
+    outline: none;
+    border-bottom: 1px solid #000;
+}
+
+.content > form textarea:focus {
+    outline: none;
+}
+
+.content > form input:focus::placeholder {
+    color: #000;
+}
+
+.content > form button {
+    width: 100%;
+    padding: 15px;
+    font-family: Shabnam;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    background: #c7a480;
+    font-size: 17px;
+    margin: 20px 0;
+}
+.content  textarea{
+    width: 275px;
+}
+
+::placeholder {
+    font-size: 15px;
+    opacity: 1;
+    color: #706c6c;
+}
+
+:-ms-input-placeholder {
+    font-size: 15px;
+}
+
+::-ms-input-placeholder {
+    font-size: 15px;
+}
+
+.form-error {
+    color: red;
+    position: relative;
+    top: -5px;
+}
+
+.forget-password {
+    text-align: center;
+}
+
+.forget-password > a{
+    text-decoration: none;
+}
+
+card.register {
+    width: 700px;
+}
+
+.grid-container {
+    display: grid;
+    column-gap: 25px;
+    grid-auto-columns: minmax(auto, 275px);
+}
+
+.card.register button {
+    grid-column: 1/3;
+}

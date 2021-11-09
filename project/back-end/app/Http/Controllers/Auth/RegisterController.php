@@ -54,6 +54,8 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'bio' => ['required' , 'max:500'],
+            'avatar' => 'required'
         ]);
     }
 
@@ -65,11 +67,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+        $file_name =pathinfo(request()->file('avatar')->getClientOriginalName(), PATHINFO_FILENAME). '-' .time(). '.' . request()->file('avatar')->extension();
+        request()->file('avatar')->move(public_path('uploads/profiles'), $file_name);
+        $data['avatar'] = $file_name;
+
+        //$data->save();
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'avatar' => $data['avatar'],
             'bio'=> 'بیوگرافی تستی'
         ]);
     }
 }
+

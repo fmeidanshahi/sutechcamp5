@@ -17,11 +17,18 @@ class User extends Authenticatable
      *
      * @var string[]
      */
+
+
+    public const ADMIN = 1;
+    public const AUTHOR = 2;
+    public const USER = 3;
+
     protected $fillable = [
         'name',
         'email',
         'password',
-        'bio'
+        'bio',
+        'avatar'
     ];
 
     protected $guarded = [
@@ -47,4 +54,27 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function posts(){
+        $this->hasMany(Post::class);
+    }
+
+    public function subscribes() {
+        return $this->hasMany(Subscribe::class);
+    }
+
+    public function comments(){
+        $this->hasMany(Comment::class);
+    }
+
+    public function is_vip() {
+        $sub = $this->subscribes()->where('expired_at', '>', now())->first();
+        if (is_null($sub))
+            return false;
+        return true;
+    }
+
+    public function postsCount(){
+        return $this->hasMany('App\Models\Post');
+    }
 }

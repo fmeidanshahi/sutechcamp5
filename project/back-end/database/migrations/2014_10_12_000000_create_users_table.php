@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->tinyInteger('role')->default(3); // 1:Admin, 2:Author, 3:User
             $table->integer('wallet')->default(0);
-           // $table->string('avatar', 255)->default('avatar.jpg');
+            $table->string('avatar', 255)->default('avatar.jpg');
             $table->string('bio', 500);
             $table->rememberToken();
             $table->timestamps();

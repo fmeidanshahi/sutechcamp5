@@ -1,21 +1,31 @@
-@extends('layouts.front.main')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8 mb-3 mt-3">
-            <div class="card">
-                <div class="card-header">ورود به سایت</div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورود</title>
+    <link rel="stylesheet" href="{{route('home')}}/css/style.css">
+</head>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+<body dir="rtl">
+    <video autoplay muted loop poster="{{route('home')}}/img/poster.jpg" class="back-footage">
+        <source src="{{route('home')}}/videos/footage.mp4" type="video/mp4">
+    </video>
+    <div class="back-overlay"></div>
+    <main>
+        <div class="card login">
+            <div class="content">
+                <h1>ورود</h1>
+                <p>برای ورود به حساب خود ایمیل و رمزعبور خود را وارد کنید.</p>
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                    <div class="form-group row">
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required placeholder="ایمیل خود را وارد کنید..." autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -25,11 +35,11 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
+                    <div class="form-group row">
+                
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required placeholder="رمزعبور خود را وارد کنید...">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -39,35 +49,14 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                    <button type="submit">ورود به حساب</button>
+                </form>
 
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                <div class="forget-password">حساب ندارید؟ <a href="{{route('register')}}">ثبت نام کنید!</a></div>
             </div>
         </div>
-    </div>
-</div>
-@endsection
+    </main>
+</body>
+
+</html>
+

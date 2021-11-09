@@ -12,117 +12,36 @@
     <link rel="stylesheet" href="{{route('home')}}/css/slick.css">
     <link rel="stylesheet" href="{{route('home')}}/css/slick-theme.css">
     <link rel="stylesheet" href="{{route('home')}}/css/aos.css">
+    <link rel="stylesheet" href="{{route('home')}}/css/social-media.css">
+    <link rel="stylesheet" href="{{route('home')}}/css/rating-stars.css">
     <link rel="stylesheet" href="{{route('home')}}/css/custom.css">
 </head>
 
 <body dir="rtl">
-    <header>
-        <div class="container">
-            <div class="row">
-                <div class="col-6 header-right">
-                    <a href="#">
-                        <img src="{{route('home')}}/img/SUTCAMPLogo.png" alt="لوگو سوتک کمپ">
-                    </a>
-                    <div class="search-bar">
-                        <form>
-                            <input type="search" class="form-control" name="" id=""
-                                placeholder="عبارتی برای جستجو وارد کنید...">
-                        </form>
-                    </div>
-                </div>
-                <div class="col-6 header-left">
-                    @auth
-                    <div class="user-bar">
-                        <div class="avatar">
-                            <img src="{{route('home')}}/img/profile.jpg" alt="">
-                            <div class="overlay"></div>
-                        </div>
-                        <div class="user-info">
-                            <div class="dropdown">
-                                <a class="usermenu" href="#" type="button" id="usermenu" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    <span>فرناز میدانشاهی</span>
-                                    <i class="fas fa-sort-down"></i>
-                                </a>
-                                <ul class="dropdown-menu animate__animated animate__fadeInUp animate__faster"
-                                    aria-labelledby="usermenu">
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            <i class="fas fa-user-alt"></i>
-                                            <span>مشاهده پروفایل</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            <i class="fas fa-sign-out-alt"></i>
-                                            <span>خروج از حساب</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="account-type">اشتراک عادی</div>
-                        </div>
-                    </div>
-                    <div class="notif-bell dropdown">
-                        <a class="notif-menu" href="#" type="button" id="notif-menu" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <i class="fas fa-bell"></i>
-                            <div class="new"></div>
-                        </a>
-                        <ul class="dropdown-menu animate__animated animate__fadeInUp animate__faster"
-                            aria-labelledby="notif-menu">
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <span>یک اطلاعیه جدید</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <span>یک اطلاعیه جدید</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    @else
-                    <a href="{{route('login')}}" class="btn btn-info">ورود</a>
-                    @endauth
-                </div>
-            </div>
+<div class="modal fade" id="share-post" tabindex="-1" aria-labelledby="sharePostLable" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered ">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="sharePostLable">به اشتراک گذاری مطلب</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-    </header>
+        <div class="modal-body ">
+            <div class="sharing-links">
+                  <ul>
+                    <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fab fa-google-plus-g" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                  </ul>
+            </div>
+            
+        </div>
+        
+      </div>
+    </div>
+  </div>
 
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="منوی ناوبری">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="index" href="#">صفحه اصلی</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">درباره ما</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">سوالات متداول</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">تماس با ما</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">دسته بندی‌ها</a>
-                    </li>
-                </ul>
-                <button class="btn-upgrade" type="submit">
-                    <i class="fas fa-crown"></i>
-                    <span>ویژه شوید!</span>
-                </button>
-            </div>
-        </div>
-    </nav>
 
     @yield('content')
 
@@ -216,6 +135,8 @@
     <script src="{{route('home')}}/js/jquery-3.6.0.min.js"></script>
     <script src="{{route('home')}}/js/slick.min.js"></script>
     <script src="{{route('home')}}/js/aos.js"></script>
+    
+    
 
     <script>
         AOS.init();
@@ -223,6 +144,12 @@
         var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
             return new bootstrap.Tooltip(tooltipTriggerEl)
         });
+
+        var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+        var toastList = toastElList.map(function (toastEl) {
+        return new bootstrap.Toast(toastEl, option)
+        });
+
 
         $('.trending-posts').slick({
             rtl: true,
@@ -261,7 +188,49 @@
                 }
             ]
         });
+
+        $('.related-posts').slick({
+            rtl: true,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            infinite: false,
+            autoplay: false,
+            arrows: true,
+            autoplaySpeed: 2000,
+            dots: true,
+            responsive: [
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 1,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 2,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 460,
+                    settings: {
+                        slidesToShow:2,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+        
+
+        
     </script>
+    @yield('footer')
 </body>
 
 </html>

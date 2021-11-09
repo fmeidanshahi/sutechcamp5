@@ -17,7 +17,12 @@
         </div>
     </footer>
 
-    <script src="/js/bootstrap.bundle.js"></script>
-    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script src="{{route('home')}}/js/bootstrap.bundle.js"></script>
+    <script src="{{route('home')}}/js/jquery-3.6.0.min.js"></script>
+    <script src="{{route('home')}}/js/ckeditor/ckeditor.js"></script>
+
+    <script> 
+        CKEDITOR.replace('editor');
+    </script> 
 </body>
 </html>

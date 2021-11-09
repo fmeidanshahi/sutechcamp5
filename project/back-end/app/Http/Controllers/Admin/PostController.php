@@ -3,11 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Post;
 
 class PostController extends Controller
 {
+
+    public function __construct() {
+        //   $this->middleware = ['',''];
+        $this->middleware('auth');
+    }
+
     public function index() {
         return view('panel.posts.index', ['posts'=>Post::all()]);
     }
@@ -37,10 +42,7 @@ class PostController extends Controller
         /* Ex: file_name-time() */
 
         $file_name =pathinfo(request()->file('thumbnail')->getClientOriginalName(), PATHINFO_FILENAME). '-' .time(). '.' . request()->file('thumbnail')->extension();
-
-
         request()->file('thumbnail')->move(public_path('uploads/thumbnails'), $file_name);
-
         $post->thumbnail = $file_name;
         $post->save();
 
@@ -60,6 +62,12 @@ class PostController extends Controller
             'thumbnail'   => 'required'
         ]);
         $post = Post::find($id);
+
+        $file_name =pathinfo(request()->file('thumbnail')->getClientOriginalName(), PATHINFO_FILENAME). '-' .time(). '.' . request()->file('thumbnail')->extension();
+        request()->file('thumbnail')->move(public_path('uploads/thumbnails'), $file_name);
+        $post->thumbnail = $file_name;
+        $post->save();
+
         $post->update($data);
         return redirect()->route('panel.posts')->with(['success'=>true]);
     }

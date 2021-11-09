@@ -51,6 +51,7 @@ a {
 .card-img, .card-img-top {
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
+    max-height: 210px;
 }
 
 .pagination {
@@ -398,15 +399,9 @@ main {
     box-shadow: 0 1px 20px #3131311f;
     border-radius: 10px;
     position: relative;
+    background-size: 100% 100%;
 }
 
-.trending-posts .trending-post .image{
-    border-radius: 10px;
-    
-    position: absolute;
-    height: 100%;
-    width: 100%;
-}
 
 .trending-posts .trending-post .buttons{
     margin-bottom: 15px;
@@ -1078,25 +1073,36 @@ border-radius: 10px;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 23%;
+    min-height: 23%;
     /* color: #fff; */
     border-radius: 10px;
     padding: 12px 100px 12px 30px;
     
 }
 
-.profile-bar .navbar{
-    padding-top: unset;
-    padding-bottom: unset;
+.profile-bar .container{
+    display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+}
+
+.profile-bar .list-group{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
 }
 
 .profile-bar .btn{
     color: black;
     background-color: white;
     border-radius: 100px;
-    position: absolute;
+    /* position: absolute;
     left: 20px;
-    bottom: 15px;
+    bottom: 15px; */
+}
+
+.profile-bar .btn i{
+    margin-left: 2px;
 }
 
 /* .profile-bar .content{
@@ -1299,4 +1305,39 @@ align-items: center;
         color: black;
     }
     
+ }
+
+
+ .posts-section{
+     margin-top: 70px;
+     margin-bottom: 70px;
+ }
+ 
+
+ .related-post{
+    /* background-color: gray; */
+    height: 180px;
+    box-shadow: 0 1px 20px #3131311f;
+    border-radius: 10px;
+    position: relative;
+    background-size: 100% 100%;
+    
+ }
+ .related-post-wrapper{
+    padding: 10px;
+    padding-bottom: 0;
+ }
+ .related-post-wrapper .post-title{
+    margin-top: 5px;
+    text-align: center;
+ }
+ .related-post-wrapper .post-title p{
+     font-size: 13px;
+ }
+ .slick-prev::before, .slick-next::before{
+     color: #7d7d7d;
+ }
+
+ .modal-content{
+     min-height: 200px;
  }

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,16 +15,24 @@ use Illuminate\Support\Facades\DB;
 */
 
 Route::get('/', 'PostController@index')->name('home');
-
+Route::get('/uploads/{folder}/')->name('uploads');
 
 
 // front
 Route::prefix('posts')->group( function (){
 
    Route::get('/', 'PostController@index');
-   Route::get('/{slug}', 'PostController@single');
+   Route::get('/{post:slug}', 'PostController@single')->name('posts.single');
+   Route::post('/{post}/rate', 'PostController@newRate')->name('rate.newRate');
+   Route::post('/{post}/support', 'PostController@supportTheAuthor')->name('post.supportTheAuthor');
 
 });
+
+Route::post('/subscribe', 'SubscribeController@new')->name('subs.new');
+Route::post('/comment/new', 'CommentController@new')->name('comment.new');
+
+
+ 
 
 //Route::prefix('posts')->group( function (){
 //Route::prefix('posts')->namespace('\App\Http\Controllers')->group( function (){
@@ -60,21 +68,28 @@ Route::group(['prefix'=>'panel', 'namespace'=>'Admin'] ,function (){
 
     Route::get('/', function (){
         return view('panel.index');
-    })->name('panel.index');
+    })->name('panel.index')->middleware('AdminAuth');
 
+    Route::get('/users', function () {
+        return view('panel.index');
+    });
+    Route::get('/users/new', function () {
+        return 'Add new User';
+    });
     
 
     Route::prefix('posts')->group(function (){
 
-        Route::get('/', 'PostController@index')->name('panel.posts');
-        Route::get('/new', 'PostController@new')->name('panel.posts.new');
-        Route::post('/new', 'PostController@add');
-        Route::get('/{id}/edit', 'PostController@edit')->name('panel.posts.edit');
-        Route::post('/{id}/edit', 'PostController@update');
-        Route::get('/{id}/delete', 'PostController@delete')->name('panel.posts.delete');
+        //        Route::get('/', 'PostController@index')->name('panel.posts')->middleware('auth');
+        Route::get('/', 'PostController@index')->name('panel.posts')->middleware('AdminAuth');
+        Route::get('/new', 'PostController@new')->name('panel.posts.new')->middleware('AuthorAuth');
+        Route::post('/new', 'PostController@add')->middleware('AuthorAuth');
+        Route::get('/{id}/edit', 'PostController@edit')->name('panel.posts.edit')->middleware('AuthorAuth');
+        Route::post('/{id}/edit', 'PostController@update')->middleware('AuthorAuth');
+        Route::get('/{id}/delete', 'PostController@delete')->name('panel.posts.delete')->middleware('AdminAuth');
     });
 
-    Route::prefix('users')->group(function (){
+    Route::group(['prefix'=>'users', 'middleware'=>'AdminAuth'] ,function (){
         Route::get('/', 'UserController@index')->name('panel.users');
         Route::get('/new', 'UserController@new')->name('panel.users.new');
         Route::post('/new', 'UserController@add');
@@ -123,4 +138,22 @@ Route::get('/dump', function (){
 
 Auth::routes();
 
+Route::get('/{id}', 'PostController@profile')->name('profile');
+
+Route::get('/test', function (){
+    //    $result = Auth::attempt(['email'=>'farnaz@gmail.com', 'password'=>'12345678']);
+    
+    //    dd($result);
+    //    dd(Auth::check());
+    
+    //    dd(auth()->user());
+    
+    
+        // @auth
+        /*if (Auth::check()){
+            Auth::user()->name;
+        }*/
+    
+    //    dd(auth()->user()->subscribes()->first()->expired_at);
+    });
 

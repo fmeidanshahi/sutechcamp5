@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/mystyle.css">
 </head>
 <body dir="rtl">
+    
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
           <a class="navbar-brand" >داشبورد</a>
@@ -43,7 +44,7 @@
               <div class="dropdown">
                 <a class="usermenu" href="#" type="button" id="usermenu" data-bs-toggle="dropdown"
                     aria-expanded="false">
-                    <span>فرناز میدانشاهی</span>
+                    <span>{{Auth::user()->name}}</span>
                     <i class="fas fa-sort-down"></i>
                 </a>
                 <ul class="dropdown-menu animate__animated animate__fadeInUp animate__faster"
