@@ -67,8 +67,8 @@ class UserController extends Controller
 
         $user->role   = request('role');
         $user->wallet   = request('wallet');
-        $user->password = Hash::make($data['password']);
-
+        $user->password = request(Hash::make($data['password']));
+        $user->avatar = request('avatar');
 
         $user->update($data);
         return redirect()->route('panel.users')->with(['success'=>true]);

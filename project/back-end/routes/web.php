@@ -25,6 +25,7 @@ Route::prefix('posts')->group( function (){
    Route::get('/{post:slug}', 'PostController@single')->name('posts.single');
    Route::post('/{post}/rate', 'PostController@newRate')->name('rate.newRate');
    Route::post('/{post}/support', 'PostController@supportTheAuthor')->name('post.supportTheAuthor');
+   Route::get('/{id}/profile', 'PostController@userProfile')->name('userProfile');
 
 });
 
@@ -68,7 +69,7 @@ Route::group(['prefix'=>'panel', 'namespace'=>'Admin'] ,function (){
 
     Route::get('/', function (){
         return view('panel.index');
-    })->name('panel.index')->middleware('AdminAuth');
+    })->name('panel.index')->middleware('AuthorAuth');
 
     Route::get('/users', function () {
         return view('panel.index');
@@ -81,7 +82,7 @@ Route::group(['prefix'=>'panel', 'namespace'=>'Admin'] ,function (){
     Route::prefix('posts')->group(function (){
 
         //        Route::get('/', 'PostController@index')->name('panel.posts')->middleware('auth');
-        Route::get('/', 'PostController@index')->name('panel.posts')->middleware('AdminAuth');
+        Route::get('/', 'PostController@index')->name('panel.posts')->middleware('AuthorAuth');
         Route::get('/new', 'PostController@new')->name('panel.posts.new')->middleware('AuthorAuth');
         Route::post('/new', 'PostController@add')->middleware('AuthorAuth');
         Route::get('/{id}/edit', 'PostController@edit')->name('panel.posts.edit')->middleware('AuthorAuth');

@@ -25,12 +25,22 @@
                         <div class="form-group row">
 
                             <div >
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"  required placeholder="نام و نام خانوادگی" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"  required placeholder="نام و نام خانوادگی" autofocus>
 
                                 @error('name')
-                                    <span class="invalid-feedback" role="alert">
+                                    <!-- <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
-                                    </span>
+                                    </span> -->
+
+                                    <div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+                                        <div class="d-flex">
+                                            <div class="toast-body">
+                                            {{ $message }}
+                                            </div>
+                                            <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                                        </div>
+                                    </div>
+
                                 @enderror
                             </div>
                         </div>
@@ -39,12 +49,21 @@
                     <div class="form-group row">
 
                             <div >
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"  required placeholder="ایمیل">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required placeholder="ایمیل">
 
                                 @error('email')
-                                    <span class="invalid-feedback" role="alert">
+                                    <!-- <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
-                                    </span>
+                                    </span> -->
+
+                                    <div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+                                        <div class="d-flex">
+                                            <div class="toast-body">
+                                            {{ $message }}
+                                            </div>
+                                            <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                                        </div>
+                                    </div>
                                 @enderror
                             </div>
                         </div>
@@ -53,12 +72,21 @@
                         <div class="form-group row">
 
                             <div >
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required placeholder="رمزعبور">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password"  required placeholder="رمزعبور">
 
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
+                                    <!-- <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
-                                    </span>
+                                    </span> -->
+
+                                    <div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+                                        <div class="d-flex">
+                                            <div class="toast-body">
+                                            {{ $message }}
+                                            </div>
+                                            <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                                        </div>
+                                    </div>
                                 @enderror
                             </div>
                         </div>
@@ -92,6 +120,13 @@
             </div>
         </div>
     </main>
+    <script>
+        var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+        var toastList = toastElList.map(function (toastEl) {
+            return new bootstrap.Toast(toastEl, option)
+        });
+
+    </script>
 </body>
 
 </html>

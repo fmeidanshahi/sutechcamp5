@@ -9,9 +9,17 @@
                     <div class="profile-wrapper" style="background-image: url({{route('home')}}/img/1349232.jpg);">
                         <!-- <img src="img/1349232.jpg" class="img-fluid" alt="..."> -->
                         <div class="overlay"></div>
-                        <img src="{{route('uploads', 'profiles')}}/{{Auth::user()->avatar}}"  class="profile-photo"
+                        <img src="{{route('uploads', 'profiles')}}/{{$user->avatar}}"  class="profile-photo"
                         data-bs-toggle="tooltip" data-bs-placement="top" title="{{ $user->name }}" >
+                        @auth
+                        @php
+                        if($user->id == auth()->user()->id){
+                        @endphp
                         <a href="#"><div class="edit-profile"><i class="fas fa-edit"></i></div></a>
+                        @php
+                        }
+                        @endphp
+                        @endauth
                         <div class="profile-bar">
                             
                                 <div class="container">
@@ -24,10 +32,17 @@
                                             <li class="list-group-item "><i class="far fa-clock"></i> آخرین بازدید <div class="profile-value">1 هفته پیش</div></li>
                                             <li class="list-group-item "><i class="far fa-comments"></i> بازخورد <div class="profile-value">120</div></li>
                                           </ul>
-                                        <!-- <button class="btn" type="submit"><i class="fas fa-user-plus"></i> دنبال کردن</button> -->  
+                                          @auth
+                                          @php
+                                          if($user->id != auth()->user()->id){
+                                          @endphp
+                                          <button class="btn" type="submit"><i class="fas fa-user-plus"></i> دنبال کردن</button>
+                                          @php
+                                          }
+                                          @endphp
+                                          @endauth  
                                     
                                 </div>
-                            
                             
                         </div>
                     </div>
@@ -35,20 +50,28 @@
             </div>
             <div class="row main-profile mb-3">
                 <div class="col-12  col-lg-4 mb-3">
-                    <div class="wallet">
+                        @auth
+                        @php
+                        if($user->id == auth()->user()->id){
+                        @endphp
+                        <div class="wallet">
                         <div class="wallet-icon"><i class="fas fa-wallet"></i></div>
                         <div class="wallet-box">
                             <div class="wallet-text">
                                 <p>موجودی کیف پول</p>
-                                <div>{{number_format(auth()->user()->wallet)}} تومان</div>
+                                <div>{{number_format($user->wallet)}} تومان</div>
                             </div>
                             <button type="button" class="btn btn-dark"><i class="fas fa-rocket"></i> افزایش موجودی</button>
                         </div>
+                        </div>
+                        @php
+                        }
+                        @endphp
+                        @endauth
                     
-                    </div>
                     <div class="about-me">
                         <h6>کمی درباره من :)</h6>
-                        <p> {{auth()->user()->bio}}</p>
+                        <p> {{$user->bio}}</p>
                     </div>
                 </div>
                 <div class="col-12 col-lg-8">
@@ -180,4 +203,3 @@
         </div>    
     </main>
 @endsection
-    

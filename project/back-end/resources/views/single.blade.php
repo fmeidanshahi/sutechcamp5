@@ -150,7 +150,7 @@
                 <div class="col-12 col-lg-4 sidebar">
                     <div class="card author" data-aos="zoom-in">
                         <img src="{{route('uploads', 'profiles')}}/{{$post->user->avatar}}" class="article-writer" alt="نوسینده مطلب">
-                        <h5 class="author-name">{{$post->user->name}}</h5>
+                        <h5 class="author-name"><a href="{{route('userProfile', $post->user->id)}}">{{$post->user->name}}</a></h5>
 
                         <div class="card-body">
                             <h6 class="card-subtitle">درباره نویسنده</h6>
@@ -183,24 +183,30 @@
                                 این مطلب رایگان بود! درصورتی که برای شما مفید بود میتوانید از نویسنده این مطلب حمایت
                                 کنید.
                             </p>
-
-                            <form action="{{route('post.supportTheAuthor')}}" method="POST">
+                            @php
+                            if(auth()->check()){
+                            @endphp
+                            <form action="{{route('post.supportTheAuthor', $post->id)}}" method="POST" id="donate">
                                 @csrf
-                                <input type="number" name="money" id="" class="form-control"
-                                    placeholder="...مبلغ حمایت را وارد کنید">
-                                <small class="form-error">مبلغ حمایت حداقل باید ۱۰۰۰ تومان باشد.</small>
-
+                                <input type="number" name="money" id="money" class="form-control" placeholder="...مبلغ حمایت را وارد کنید">
+                                
+                                <div class="messages" id="messages"></div>
+                                
                                 <button type="submit" id="pay_donation" class="blue-btn mt-3">بفرست بره!</button>
                             </form>
+                            @php
+                            }else{
+                            @endphp
+                                    ابتدا
+                                    <a href="{{route('login')}}">وارد شوید</a>
+                                    و یا
+                                    <a href="{{route('register')}}"> ثبت‌نام کنید!</a>
+                            @php
+                            }
+                            @endphp
                         </div>
 
-                        <div id="payment_success" class="success-overlay">
-                            <div class="content">
-                                <i class="fas fa-smile-wink"></i>
-                                <h4>مرسی!</h4>
-                                <p>براش فرستادیم!</p>
-                            </div>
-                        </div>
+                        
                     </div>
                     @endif
 
@@ -214,12 +220,48 @@
 
 @section('footer')
     <script src="{{route('home')}}/js/ckeditor/ckeditor.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
+
+        var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+        var toastList = toastElList.map(function (toastEl) {
+            return new bootstrap.Toast(toastEl, option)
+        });
+
+
         $(document).ready(function () {
-            $('#pay_donation').click(function () {
-                $('#payment_success').fadeIn().css({display: 'flex'}).delay(3000).fadeOut();
+
+
+            var form = $('#donate');
+            var messages = $('#messages');
+
+            form.submit(function (event) {
+            event.preventDefault();
+            var formData = form.serialize();
+
+            $.ajax({
+               type: 'POST',
+               url: form.attr('action'),
+               data: formData
+            }).done(function (response) {
+               messages.append(response)
+               $('#payment_success').fadeIn().css({display: 'flex'}).delay(3000).fadeOut();
+
+            }).fail(function (res) {
+               messages.append(res.responseText)
             });
+           });
+
+        //    $('#pay_donation').click(function () {
+        //         $('#payment_success').fadeIn().css({display: 'flex'}).delay(3000).fadeOut();
+        //     });
+
+
         });
         CKEDITOR.replace('editor');
+
+
+
+
     </script>
 @endsection

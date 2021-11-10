@@ -14,7 +14,7 @@ class PostController extends Controller
     }
 
     public function index() {
-        return view('panel.posts.index', ['posts'=>Post::all()]);
+        return view('panel.posts.index', ['posts'=>Post::all() , 'authorPosts'=>Post::where('user_id' , auth()->user()->id)->get()]);
     }
 
     public function new() {

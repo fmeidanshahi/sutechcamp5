@@ -61,6 +61,26 @@ class PostController extends Controller
         $this->validate(request(), [
             'money'   => 'required',
         ]);
+
+        $moneyy = $request->input('money');
+        $user = auth()->user();
+        // if (!auth()->check()) return redirect()->route('login');
+        if($moneyy < 1000){
+            http_response_code(400);
+            return '<div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true"><div class="d-flex"><div class="toast-body">مبلغ حمایت حداقل باید ۱۰۰۰ تومان باشد.</div><button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button></div></div>';
+        }elseif($user->wallet < $moneyy ){
+            http_response_code(400);
+            return '<div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true"><div class="d-flex"><div class="toast-body">موجودی شما کافی نیست.</div><button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button></div></div>';
+        }else{
+            http_response_code(200);
+        $user->wallet -= $moneyy;
+        $post->user->wallet += $moneyy;
+        $user->update();
+        $post->user->update();
+        
+        $output = '<div id="payment_success" class="success-overlay"><div class="content"><i class="fas fa-smile-wink"></i><h4>مرسی!</h4><p>براش فرستادیم!</p></div></div>';
+            
+        return $output;}
     }
 
     public function profile($id) {
@@ -68,6 +88,14 @@ class PostController extends Controller
         $user = User::where('id', $id)->first();
         return view('profile', ['user'=> $user]);
         // return view('profile', compact('user'));
+                                    
+    }
+
+    public function userProfile($id) {
+
+        $user = User::where('id', $id)->first();
+        return view('userProfile', ['user'=> $user]);
+        
                                     
     }
 }
